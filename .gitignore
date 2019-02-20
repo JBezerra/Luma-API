@@ -1,1 +1,4 @@
-node_modeules/
+node_modules/
+.DS_Store
+webhook/.DS_Store
+firebase-secret.json

@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
-// var db = require('./db');
 
+// Configure API Routes
 var webhookController = require('./webhook/webhookController');
 app.use('/api', webhookController);
 

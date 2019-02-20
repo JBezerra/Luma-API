@@ -1,6 +1,6 @@
 class Webhook {
-
   constructor() {
+    // Auth Infos to Access the database
     this.admin = require("firebase-admin");
     this.admin.initializeApp({
       credential: this.admin.credential.cert("./firebase-secret.json"),
@@ -10,6 +10,7 @@ class Webhook {
     this.child = this.admin.database().ref().child('chat_collec');
   }
 
+  // Create a User in DB
   add(chat_id, nome, cpf, telefone, idade, genero, placa) {
     var adcionar = this.child.push();
     adcionar.set({
@@ -23,30 +24,7 @@ class Webhook {
     });
   }
 
-  getAll() {
-    let child = this.child;
-    return new Promise(function (resolve, reject) {
-      child.on("value", function (snapshot) {
-        resolve(snapshot.val());
-      }, function (errorObject) {
-        reject(errorObject.code);
-      });
-    });
-
-  }
-
-  get(chat_id) {
-    let child = this.child;
-    return new Promise(function (resolve, reject) {
-      child.orderByChild("chat_id").equalTo(chat_id).on("value", function (snapshot) {
-        resolve(snapshot.val());
-      }, function (errorObject) {
-        reject(errorObject.code);
-      });
-    });
-
-  }
-
+  // Update values of the user
   creteOrUpdate(chat_id, nome, cpf, telefone, idade, genero, placa) {
     let admin = this.admin;
     let child = this.child;

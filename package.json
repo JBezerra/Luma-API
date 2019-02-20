@@ -1,5 +1,5 @@
 {
-  "name": "Luma-API",
+  "name": "luma-api",
   "version": "1.0.0",
   "description": "Webhook client for Luma Chatbot",
   "main": "server.js",
@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "firebase-admin": "^6.5.0",
+    "firebase-admin": "^6.5.0"
   }
 }
